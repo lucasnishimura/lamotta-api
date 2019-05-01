@@ -1,0 +1,42 @@
+{
+  "name": "lamotta",
+  "version": "2.1.2",
+  "description": "Sistema de estoque",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
+    "dotenv-safe": "^6.1.0",
+    "express": "^4.16.3",
+    "express-load": "^1.1.16",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.0",
+    "jsonwebtoken": "^8.4.0",
+    "md5": "^2.2.1",
+    "mocha": "^6.1.4",
+    "multer": "^1.4.1",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.4",
+    "socket.io": "^2.1.1"
+  },
+  "author": "Lucas",
+  "license": "ISC",
+  "engines": {
+    "node": ">=6"
+  },
+  "browserslist": [
+    "last 1 major version",
+    ">= 1%",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ]
+}
