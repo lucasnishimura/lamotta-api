@@ -4,7 +4,6 @@ var mysql = require('mysql');
 function createDBConnection(){
 
     if(!process.env.NODE_ENV){
-        //conecta no banco de dados acionando o método createconnection, e como parametro são os dados de conexão 
         var connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
@@ -16,7 +15,6 @@ function createDBConnection(){
     }
 
     if(process.env.NODE_ENV == 'teste'){
-        //conecta no banco de dados acionando o método createconnection, e como parametro são os dados de conexão 
         var connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
@@ -24,6 +22,21 @@ function createDBConnection(){
             password: '', //usa no trampo
             database: 'lamotta_com_br' //usa em casa
             // database: 'estudo_teste' //usa para teste
+        });
+    }
+
+    if(process.env.NODE_ENV == 'production'){
+        // var url = process.env.CLEARDB_DATABASE_URL;
+        // var grupos = url.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)\?/);
+        var connection = mysql.createConnection({
+            // host:grupos[3],
+            // user:grupos[1],
+            // password:grupos[2],
+            // database:grupos[4]
+            host: 'us-cdbr-iron-east-02.cleardb.net',
+            user: 'b34708ba3d30af',
+            password: '8fde8d5d', //usa no trampo
+            database: 'heroku_272e0091bd44a58' //usa em casa
         });
     }
 
