@@ -3,7 +3,7 @@ function VendasBanco(connection){
 }
 
 VendasBanco.prototype.lista =  function(callback){
-    this.connection.query('select a.*,c.nome from vendas as a inner join clientes as c on a.cliente_id = c.id',callback);
+    this.connection.query('select a.*,c.nome from vendas as a left join clientes as c on a.cliente_id = c.id',callback);
 }	
 
 VendasBanco.prototype.salva =  function(produto,callback){
@@ -13,14 +13,14 @@ VendasBanco.prototype.salva =  function(produto,callback){
 VendasBanco.prototype.salvaVenda =  function(produto,callback){
 	for (var index = 0; index < produto.total; index++) {
 		// const element = array[index];
-		this.connection.query('insert into venda_produto (venda_id,produto_id,quantidade) VALUES ('+produto.venda_id+','+produto.vendas[index].produto+','+produto.vendas[index].quantidade+')',callback);
+		this.connection.query('insert into venda_produto (venda_id,produto_id,quantidade) VALUES ('+produto.venda_id+','+produto.vendas[index].produto_id+','+produto.vendas[index].quantidade+')',callback);
 	}
 }
 
 VendasBanco.prototype.alteraVenda =  function(produto,callback){
 	for (var index = 0; index < produto.total; index++) {
 		// const element = array[index];
-		this.connection.query('update venda_produto set venda_id="'+produto.venda_id+'", produto_id="'+produto.vendas[index].produto+'", quantidade="'+produto.vendas[index].quantidade+'" where id="'+produto.vendas[index].id+'" ',callback);
+		this.connection.query('update venda_produto set venda_id="'+produto.venda_id+'", produto_id="'+produto.vendas[index].produto_id+'", quantidade="'+produto.vendas[index].quantidade+'" where id="'+produto.vendas[index].id+'" ',callback);
 	}
 }	
 

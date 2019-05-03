@@ -28,12 +28,12 @@ module.exports = function(app){
         
         var erros = req.validationErrors();
        if(erros){
-           return res.status(400).send({success:false,data:erros}); 
+           return res.status(400).json({success:false,data:erros}); 
        }
 
         vendasBanco.salva(req.body,function(err,results){
             if(err){
-                return res.status(500).send({success:false,data:err}); 
+                return res.status(500).json({success:false,data:err}); 
             }else{
                 var dados_insert = {
                     'venda_id' : results.insertId,
@@ -43,24 +43,14 @@ module.exports = function(app){
           
                 vendasBanco.salvaVenda(dados_insert,function(erro,results){
                     if(erro){
-                        return res.status(500).send({success:false,data:erro}); 
+                        return res.status(500).json({success:false,data:erro}); 
                     }else{
-                        return res.status(500).send({success:false,data:results}); 
+                        return res.status(200).json({success:true,data:results}); 
                     }
                 })        
             }
 
         })
-
-        res.format({
-            html: function(){
-                res.redirect('/vendas');
-            },
-            json: function(){
-                return res.status(200).send({auth:true}); 
-            }
-        })
-
         
     })
 

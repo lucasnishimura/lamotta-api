@@ -15,7 +15,7 @@ ProdutosBanco.prototype.ver =  function(produto,callback){
 }
 
 ProdutosBanco.prototype.altera =  function(produto,callback){
-	this.connection.query('update produtos set nome="'+produto.nome+'", preco="'+produto.preco+'", descricao="'+produto.descricao+'", status="'+produto.status+'" where id = '+produto.id,callback);
+	this.connection.query('update produtos set nome="'+produto.nome+'", preco="'+produto.preco+'", descricao="'+produto.descricao+'", sabor="'+produto.sabor+'" , status="'+produto.status+'" where id = '+produto.id,callback);
 }	
 
 module.exports = function(){
