@@ -27,7 +27,7 @@ module.exports = function(app){
             }
             
             connection.end();
-            return res.status(400).send({success: true, data: results});
+            return res.status(200).send({success: true, data: results});
         });
     })
 
@@ -61,7 +61,7 @@ module.exports = function(app){
             if(err){
                 return res.status(400).send({success: false, data: err});
             }else{
-                return res.status(400).send({success: true, data: results});
+                return res.status(200).send({success: true, data: results});
             }
         })
 
