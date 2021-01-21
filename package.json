@@ -21,7 +21,7 @@
     "multer": "^1.4.1",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.4",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.4.0"
   },
   "author": "Lucas",
   "license": "ISC",
